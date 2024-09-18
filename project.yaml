@@ -1,0 +1,9 @@
+blueprint: https://raw.githubusercontent.com/fonipts/pluton-lobby/dev/1.0.2alpha0/blueprint/fastapi
+default_choices:
+  database: postgres
+  docker: No plan
+  folder_name: app_notes
+  name: app_notes
+  pydantic_choice: 'yes'
+  redis: 'yes'
+name: app_notes

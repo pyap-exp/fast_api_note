@@ -1,0 +1,26 @@
+script:
+  pip_install:
+    command:
+      - pip install -r requirements.txt
+    description: Install package
+  run_pg_docker:
+    command:
+      - docker compose up -d postgres
+    description: Install postgres in docker compose
+  run_pg_migrate:
+    command:
+      - python app/seed.py
+    description: Seed postgres db
+  start:
+    command:
+      - fastapi dev app/main.py
+
+  qa_sort:
+    command:
+      - isort ./app/ --check-only
+  qa_pylint:
+    command:
+      - pylint app/ --disable=missing-docstring
+  qa_pytest:
+    command:
+      - pytest
