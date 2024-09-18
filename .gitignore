@@ -1,0 +1,9 @@
+app/__pycache__
+app/dependency/__pycache__
+app/helper/__pycache__
+app/routers/__pycache__
+app/model/__pycache__
+app/model/db/__pycache__
+app/model/serialize/__pycache__
+tests/__pycache__
+tests/router/__pycache__
