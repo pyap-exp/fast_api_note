@@ -13,5 +13,5 @@ class TestSuccess(unittest.TestCase):
         assert res_place_valid.status_code == 200
 
     def test_get_by_id_notes(self):
-        res_place_valid = client.get("/notes/2",headers={"X-Token":token})
+        res_place_valid = client.get("/notes/3",headers={"X-Token":token})
         assert res_place_valid.status_code == 200

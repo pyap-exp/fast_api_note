@@ -3,8 +3,8 @@ from fastapi import APIRouter, Depends, HTTPException
 from ..dependency.db import database_connect
 from ..dependency.header import get_token_header
 from ..model.db.notes import Notes
-from ..model.serialize.notes import (DataRowNotes, GetNotes, NotesBase,
-                                     get_tags_name)
+from ..model.serialize.notes import (DataRowNotes, DeleteRowNotes, GetNotes,
+                                     NotesBase, get_tags_name)
 
 router = APIRouter(
     prefix="/notes",
@@ -21,6 +21,10 @@ async def create_notes(base: NotesBase,sess = Depends(database_connect)):
 @router.put("/update")
 async def update_notes(base: DataRowNotes,sess = Depends(database_connect)):
     return base.update(sess)
+
+@router.delete("/delete")
+async def delete_notes(base: DeleteRowNotes,sess = Depends(database_connect)):
+    return base.delete(sess)
 
 @router.get("/all")
 async def get_all_notes(sess = Depends(database_connect))->GetNotes:

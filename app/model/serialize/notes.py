@@ -73,5 +73,16 @@ class DataRowNotes(_NotesId,NotesBase):
         }
 
 
+class DeleteRowNotes(_NotesId):
+
+    def delete(self,session):
+        get = session.query(Notes).filter(Notes.id == self.id)
+        if get.count() == 0:
+            raise HTTPException(status_code=404, detail="Note ID not found for delete")
+        get.delete()
+        session.commit()
+        return {
+            "message": "Delete successfully"
+        }
 class GetNotes(BaseModel):
     data:List[DataRowNotes]

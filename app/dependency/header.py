@@ -3,6 +3,7 @@ from typing import Annotated
 import jwt
 from fastapi import Header, HTTPException
 
+
 async def get_token_header(x_token: Annotated[str, Header()]):
     try:
         jwt.decode(x_token, "secret", algorithms=["HS256"])
