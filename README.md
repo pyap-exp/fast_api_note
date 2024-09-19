@@ -71,4 +71,4 @@
     - plutonkit cmd  start
     ```
 
-    If you can struggles in using plutonkit command, please check the command.yaml for more details.
+    If you have struggles in using plutonkit command, please check the command.yaml for command you can use in this project.
