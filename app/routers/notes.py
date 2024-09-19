@@ -22,8 +22,9 @@ async def create_notes(base: NotesBase,sess = Depends(database_connect)):
 async def update_notes(base: DataRowNotes,sess = Depends(database_connect)):
     return base.update(sess)
 
-@router.delete("/delete")
-async def delete_notes(base: DeleteRowNotes,sess = Depends(database_connect)):
+@router.delete("/delete/{item_id}")
+async def delete_notes(item_id: int,sess = Depends(database_connect)):
+    base: DeleteRowNotes = DeleteRowNotes(id=item_id)
     return base.delete(sess)
 
 @router.get("/all")
